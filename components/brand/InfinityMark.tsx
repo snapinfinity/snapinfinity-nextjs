@@ -14,7 +14,8 @@ type Props = {
 
 /**
  * The logo mark as separate shapes so each bar and arc can move on its own.
- * Bars are numbered left to right, 0–6.
+ * Bars are numbered left to right, 0–6. Each shape sits in its own group so a
+ * scroll scene can move the group without fighting the CSS entrance on the path.
  */
 export function InfinityMark({ id, className, animate, gradient = true, lit }: Props) {
   const fill = gradient ? `url(#${id}-fill)` : "currentColor";
@@ -34,17 +35,19 @@ export function InfinityMark({ id, className, animate, gradient = true, lit }: P
       </defs>
       <g>
         {markArcs.map((d, i) => (
-          <path key={`a${i}`} className="mark-arc" d={d} fill={fill} />
+          <g key={`a${i}`} data-arc={i}>
+            <path className="mark-arc" d={d} fill={fill} />
+          </g>
         ))}
         {markBars.map((b, i) => (
-          <path
-            key={`b${i}`}
-            className={cn("mark-bar transition-[fill,opacity] duration-700", lit && !lit.includes(i) && "opacity-25")}
-            data-bar={i}
-            d={b.d}
-            fill={lit?.includes(i) ? "#46E3C8" : fill}
-            style={{ "--i": i } as React.CSSProperties}
-          />
+          <g key={`b${i}`} data-bar={i}>
+            <path
+              className={cn("mark-bar transition-[fill,opacity] duration-700", lit && !lit.includes(i) && "opacity-25")}
+              d={b.d}
+              fill={lit?.includes(i) ? "#46E3C8" : fill}
+              style={{ "--i": i } as React.CSSProperties}
+            />
+          </g>
         ))}
       </g>
     </svg>

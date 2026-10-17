@@ -373,7 +373,7 @@
     animation: arc-in-left 1.6s var(--ease-out-expo) both;
     animation-delay: 200ms;
   }
-  .mark-animate .mark-arc + .mark-arc {
+  .mark-animate [data-arc="1"] .mark-arc {
     animation-name: arc-in-right;
   }
 }
@@ -431,9 +431,9 @@
   }
 }
 
-/* Nav mark hides on the home page so the hero mark can dock into it */
+/* Nav mark pieces start hidden on the home page; scrolling the hero rebuilds them (DockingMark) */
 @media (prefers-reduced-motion: no-preference) and (min-width: 1024px) {
-  [data-home="true"] [data-nav-mark] {
+  [data-home="true"] [data-nav-mark] path {
     opacity: 0;
   }
 }

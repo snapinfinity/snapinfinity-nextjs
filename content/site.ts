@@ -39,9 +39,12 @@ export const site = {
   privacyEffectiveDate: "1 August 2023",
 } as const;
 
+// Contact is left out of the navbar: the "Start a project" button beside it goes there.
 export const mainNav = [
+  { label: "Home", href: "/" },
   { label: "Work", href: "/work" },
   { label: "Services", href: "/services" },
   { label: "About", href: "/about" },
-  { label: "Contact", href: "/contact" },
 ] as const;
+
+export const footerNav = [...mainNav, { label: "Contact", href: "/contact" }] as const;

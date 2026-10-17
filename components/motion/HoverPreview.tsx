@@ -6,7 +6,8 @@ import { cn } from "@/lib/utils";
 
 /**
  * A floating card that follows the pointer over rows marked data-preview="<index>"
- * and shows the matching visual. Fine pointers only; purely decorative.
+ * and shows the matching visual. It floats behind the rows so it never covers their text.
+ * Fine pointers only; purely decorative.
  */
 export function HoverPreview({ previews, children, className }: { previews: React.ReactNode[]; children: React.ReactNode; className?: string }) {
   const root = useRef<HTMLDivElement>(null);
@@ -43,13 +44,13 @@ export function HoverPreview({ previews, children, className }: { previews: Reac
   );
 
   return (
-    <div ref={root} className={cn("relative", className)}>
-      {children}
+    <div ref={root} className={cn("relative isolate", className)}>
+      <div className="relative z-10">{children}</div>
       <div
         ref={card}
         aria-hidden="true"
         className={cn(
-          "pointer-events-none absolute left-0 top-0 z-20 hidden aspect-[4/5] w-[min(22vw,320px)] overflow-hidden rounded-lg border border-line-strong shadow-[0_40px_120px_-40px_rgb(70_227_200/0.45)] transition-[opacity,scale] duration-500 ease-[var(--ease-out-expo)] [@media(hover:hover)_and_(pointer:fine)]:block",
+          "pointer-events-none absolute left-0 top-0 hidden aspect-[4/5] w-[min(22vw,320px)] overflow-hidden rounded-lg border border-line-strong shadow-[0_40px_120px_-40px_rgb(70_227_200/0.45)] transition-[opacity,scale] duration-500 ease-[var(--ease-out-expo)] [@media(hover:hover)_and_(pointer:fine)]:block",
           visible ? "scale-100 opacity-100" : "scale-90 opacity-0",
         )}
       >

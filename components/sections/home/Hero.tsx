@@ -38,7 +38,7 @@ export function Hero() {
       <Aurora className="-z-10" />
 
       <div className="container-site relative flex flex-1 flex-col pb-10 pt-28 md:pt-32">
-        {/* The mark: builds itself on load, then docks into the nav on scroll (desktop) */}
+        {/* The mark: builds itself on load, then comes apart on scroll and rebuilds in the nav (desktop) */}
         <div className="hero-mark pointer-events-none flex justify-end lg:absolute">
           <DockingMark className="relative w-[46vw] max-w-[260px] lg:w-full lg:max-w-none">
             <div

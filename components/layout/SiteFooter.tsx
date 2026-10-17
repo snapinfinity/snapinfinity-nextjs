@@ -1,14 +1,13 @@
 import Link from "next/link";
-import { Wordmark } from "@/components/brand/Logo";
 import { socialIcon } from "@/components/ui/Icons";
-import { mainNav, site } from "@/content/site";
+import { footerNav, site } from "@/content/site";
 import { services } from "@/content/services";
 
 export function SiteFooter() {
   const year = new Date().getFullYear();
   return (
     <footer className="cv-auto relative overflow-hidden border-t border-line bg-abyss">
-      <div className="container-site grid gap-14 pb-10 pt-20 md:pt-28 lg:grid-cols-12">
+      <div className="container-site grid gap-14 pb-16 pt-20 md:pb-20 md:pt-28 lg:grid-cols-12">
         <div className="flex flex-col gap-6 lg:col-span-5">
           <p className="font-wide text-[clamp(1.75rem,1.2rem+2vw,2.75rem)] font-[650] leading-[1.02] tracking-[-0.025em]">
             Infinite ideas.
@@ -28,12 +27,7 @@ export function SiteFooter() {
           <div>
             <h2 className="text-label mb-5 text-fg-3">Studio</h2>
             <ul className="flex flex-col gap-3">
-              <li>
-                <Link href="/" className="text-fg-2 transition-colors hover:text-fg">
-                  Home
-                </Link>
-              </li>
-              {mainNav.map((item) => (
+              {footerNav.map((item) => (
                 <li key={item.href}>
                   <Link href={item.href} className="text-fg-2 transition-colors hover:text-fg">
                     {item.label}
@@ -77,10 +71,6 @@ export function SiteFooter() {
             </ul>
           </div>
         </nav>
-      </div>
-
-      <div className="container-site" data-reveal="up">
-        <Wordmark className="w-full text-fg/[0.06]" />
       </div>
 
       <div className="container-site flex flex-col gap-3 border-t border-line py-6 text-sm text-fg-3 sm:flex-row sm:items-center sm:justify-between">

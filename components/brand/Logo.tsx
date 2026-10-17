@@ -14,10 +14,10 @@ export function Mark({ className, ...props }: SvgProps) {
       {...props}
     >
       {markArcs.map((d, i) => (
-        <path key={`a${i}`} d={d} />
+        <path key={`a${i}`} data-arc={i} d={d} />
       ))}
       {markBars.map((b, i) => (
-        <path key={`b${i}`} d={b.d} />
+        <path key={`b${i}`} data-bar={i} d={b.d} />
       ))}
     </svg>
   );
