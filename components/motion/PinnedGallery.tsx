@@ -63,7 +63,7 @@ export function PinnedGallery({ children, count, className }: { children: React.
     <div ref={root} className={cn("group/gallery relative overflow-hidden lg:flex lg:h-[100svh] lg:items-center", className)}>
       <div
         ref={track}
-        className="scroll-x flex snap-x snap-mandatory gap-5 overflow-x-auto overscroll-x-contain px-[clamp(1rem,0.4rem+3vw,3.5rem)] pb-4 group-[.is-pinned]/gallery:snap-none group-[.is-pinned]/gallery:overflow-visible lg:gap-10"
+        className="scroll-x flex snap-x snap-mandatory gap-5 overflow-x-auto overscroll-x-contain scroll-px-[clamp(1rem,0.4rem+3vw,3.5rem)] px-[clamp(1rem,0.4rem+3vw,3.5rem)] pb-4 group-[.is-pinned]/gallery:snap-none group-[.is-pinned]/gallery:overflow-visible lg:gap-10"
       >
         {children}
       </div>
