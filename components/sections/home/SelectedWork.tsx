@@ -9,7 +9,7 @@ export function SelectedWork() {
   return (
     <section id="work" aria-labelledby="work-title" className="relative border-t border-line py-20 lg:py-0">
       <PinnedGallery count={featuredProjects.length}>
-        <div className="flex w-[82vw] shrink-0 snap-start flex-col justify-center gap-8 sm:w-[60vw] lg:w-[34vw] lg:pr-8">
+        <div className="flex w-[60vw] shrink-0 snap-start flex-col justify-center gap-8 max-md:hidden lg:w-[34vw] lg:pr-8">
           <div data-reveal="fade">
             <Eyebrow>Selected work</Eyebrow>
           </div>
